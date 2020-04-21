@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    function a(url){
+      var ht=url.substring(0,url.indexOf("://"));//协议
+      var ym=url.substring(url.indexOf("www.")+4,url.indexOf(".com"));//域名
+      var cs=url.substring(url.indexOf("?")+1,url.length);
+      var objectArray=cs.split('&');
+      var data={};//参数
+      if(objectArray){
+        objectArray.map((item,index)=>{
+          data[item.substring(0,item.indexOf('='))]=item.substring(item.indexOf('=')+1,item.length)
+        })
+      }
+    }
+  </script>
+</body>
+</html>
