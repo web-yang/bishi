@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function formatNumber(num) {
+      var geshi = ''
+      // 转化字符串
+      num = num.toString()
+      if (num.indexOf('.') != -1) {
+        geshi = '.' + num.split('.')[1]
+        num = parseInt(num.split('.')[0])
+      }
+      var array = num.toString().split('')
+      var index = -3
+      while (array.length + index > 0) {
+        array.splice(index, 0, ',')
+        index -= 4
+      }
+      return array.join('') + geshi
+    }
+
+    console.log(formatNumber(2384235232))
+  </script>
+</body>
+</html>

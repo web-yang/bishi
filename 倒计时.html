@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    距离本月低还剩
+    <span class='d'></span>
+    <span>天</span>
+    <span class='h'></span>
+    <span>时</span>
+    <span class='m'></span>
+    <span>分</span>
+    <span class='s'></span>
+    <span>秒</span>
+  </div>
+  <script>
+    function countTime() {
+      var nowTime = +new Date();  //定义当前时间戳
+      // console.log(nowTime);
+      var lastTime = +new Date('2020-4-30 24:0:0');  //定义将来时间戳
+      // console.log(lastTime);
+      var nextTime = lastTime - nowTime; //当前与将来的时间戳
+      var d = parseInt(nextTime / 1000 / 60 / 60 / 24) //计算日
+      d = d < 10 ? '0' + d : d;
+      var h = parseInt(nextTime / 1000 / 60 / 60 % 24); //计算小时
+      h = h < 10 ? '0' + h : h;
+      var m = parseInt(nextTime / 1000 / 60 % 60); //计算分
+      m = m < 10 ? '0' + m : m;
+      var s = parseInt(nextTime / 1000 % 60); //计算秒
+      s = s < 10 ? '0' + s : s;
+
+      document.getElementsByClassName('d')[0].innerText = d;
+      document.getElementsByClassName('h')[0].innerText = h;
+      document.getElementsByClassName('m')[0].innerText = m;
+      document.getElementsByClassName('s')[0].innerText = s;
+    }
+    countTime();
+    setInterval(countTime, 1000);
+  </script>
+</body>
+</html>
